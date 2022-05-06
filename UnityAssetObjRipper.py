@@ -37,13 +37,22 @@ class DecompiledAsset:
         self.__uvs = []
         self.__slices = []
         self.__indices = []
-
+        self.format = 12 #vert_chunk_size
+        
+        # check if format can be changed
         with open(file_name, "r") as file:
             for line in file:
                 if "m_IndexBuffer" in line:
                     self.__index = line.replace("\n", "")[line.find(":") + 2:]
                 elif "_typelessdata" in line:
                     self.__mesh = line.replace("\n", "")[line.find(":") + 2:]
+                elif "format" in line:
+                    # check if contains a number greater than 0, if so, then
+                    # change format to that
+                    fmt = int(line.replace("\n", "")[line.find(":") + 2:])
+                    print("format:", fmt)
+                    if fmt >= 6: # arbitrary number
+                        self.format = fmt
 
     def parse(self, vert_chunk_size, offset_v1, offset_v2, offset_v3, debug=False):
 
@@ -156,7 +165,7 @@ def main():
             print("decompiling", f)
             n += 1
             asset = DecompiledAsset(input_path + "/" + f)
-            asset.parse(12, 0, 1, 2, True if "-debug" in sys.argv else False)
+            asset.parse(asset.format, 0, 1, 2, True if "-debug" in sys.argv else False)
             asset.dump(3, output_path + "/" + f + ".obj")
 
         print("decompiled", n, "assets")
@@ -167,7 +176,7 @@ def main():
             exit(0)
 
         asset = DecompiledAsset(input_path)
-        asset.parse(12, 0, 1, 2, True if "-debug" in sys.argv else False)
+        asset.parse(asset.format, 0, 1, 2, True if "-debug" in sys.argv else False)
         asset.dump(3, output_path + "/" + input_path + ".obj")
 
     total_time = (time.time() - first_time)
