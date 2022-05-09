@@ -23,8 +23,10 @@ Do whatever you want with the source code, but credit me or something idk
 
 ## Samples
 From Lurking Game
+![alt text](lurking-splash.PNG?raw=true "Title")
 
-![alt text](samples.PNG?raw=true "Title")
+Valheim
+![alt text](valheim-splash.PNG?raw=true "Title")
 
 # Blah
 The executable binary fixes most of the issues regarding. The reason for this is because I hate Python and decided to rewrite this project in c++. I looked through an .asset file in Unity and saw some patterns between vertex formats and stuff, which makes the cpp version better.
