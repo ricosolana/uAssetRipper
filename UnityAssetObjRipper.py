@@ -1,5 +1,5 @@
 # Original .js version created by maierfelix https://gist.github.com/maierfelix/1802f9523dee4090e16dc44a4ac70176
-# Python implementation written and adapted by crazicrafter1 
+# Python implementation written and adapted by crazicrafter1
 
 import sys
 import time
@@ -37,8 +37,8 @@ class DecompiledAsset:
         self.__uvs = []
         self.__slices = []
         self.__indices = []
-        self.format = 12 #vert_chunk_size
-        
+        self.format = 12  # vert_chunk_size
+
         # check if format can be changed
         with open(file_name, "r") as file:
             for line in file:
@@ -51,7 +51,7 @@ class DecompiledAsset:
                     # change format to that
                     fmt = int(line.replace("\n", "")[line.find(":") + 2:])
                     print("format:", fmt)
-                    if fmt >= 6: # arbitrary number
+                    if fmt >= 6:  # arbitrary number
                         self.format = fmt
 
     def parse(self, vert_chunk_size, offset_v1, offset_v2, offset_v3, debug=False):
@@ -61,7 +61,7 @@ class DecompiledAsset:
             self.__slices.append(_slice)
 
         if debug:
-            print("slices: ", len(self.__slices)//3)
+            print("slices: ", len(self.__slices) // 3)
             for i in range(0, len(self.__slices) // vert_chunk_size):
                 offset = i * vert_chunk_size
                 for e in range(0, vert_chunk_size):
@@ -148,6 +148,11 @@ def main():
         print("that path does not exist")
         exit(0)
 
+    if not os.path.exists(output_path):
+        os.makedirs(output_path)
+
+    input_name = os.path.basename(input_path)
+
     if "-all" in sys.argv:
         # then parse all files
 
@@ -177,7 +182,7 @@ def main():
 
         asset = DecompiledAsset(input_path)
         asset.parse(asset.format, 0, 1, 2, True if "-debug" in sys.argv else False)
-        asset.dump(3, output_path + "/" + input_path + ".obj")
+        asset.dump(3, output_path + "/" + input_name + ".obj")
 
     total_time = (time.time() - first_time)
 
