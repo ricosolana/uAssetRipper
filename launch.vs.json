@@ -1,0 +1,13 @@
+{
+  "version": "0.2.1",
+  "defaults": {},
+  "configurations": [
+    {
+      "type": "default",
+      "project": "CMakeLists.txt",
+      "projectTarget": "",
+      "name": "CMakeLists.txt",
+      "args": [ "C:/Users/Rico/Documents/Valheim.v0.154.1.Decomp/globalgamemanagers.assets/Assets/Mesh/default_0.asset", "out" ]
+    }
+  ]
+}
