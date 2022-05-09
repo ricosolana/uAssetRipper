@@ -1,3 +1,7 @@
+Use Asset Ripper instead https://github.com/AssetRipper/AssetRipper
+
+It can export meshes in custom formats, which renders this tool useless...
+
 # uAssetRipper
 Convert asset files created by uTinyRipper (or other) into .obj models
 
