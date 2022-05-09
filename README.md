@@ -1,8 +1,10 @@
-# UnityAssetObjRipper
+# uAssetRipper
 Convert asset files created by uTinyRipper (or other) into .obj models
 
+Use the executable or build the cpp version, as it supports a lot more formats than the Python version atm.
+
 ## Usage
-You will need a Python environment.
+You will need a Python environment for the Python version.
 
 To begin ripping .obj models: `python.exe UnityAssetObjRipper.py input output`. This is the base command to convert one Unity .asset file, where `input` is the **file** path (with no slash at the end), and `output` is the output **directory** (not an output file).
 
@@ -23,6 +25,8 @@ This will read from `pre_assets` and write all found `.asset` files as `.obj` to
 The source code is provided as is, you can look at it, I am not responsible for anything that happens to your system while using it. 
 
 Some `.asset` files might not be read correctly since different versions of Unity and different `.asset` formats might not be compatible with this tool. Use it at your own will.
+
+The executable binary fixes most of the issue above. The reason for this is because I hate Python and decided to rewrite this project in c++. I looked through an .asset file in Unity and saw some patterns between vertex formats and stuff, which makes the cpp version better.
 
 ## Samples
 
