@@ -42,7 +42,7 @@ Idk why the executable is slower than the python version (~30%), maybe because t
 > 	 84.00s to run c++ ripper (release)
 > 	 54.90s to run python ripper
 
-Subnautica Ghost Leviathan has a color component in the vertex buffer when viewed in the Unity editor, which is interesting. It's also interesting how the 'Ghost' leviathan is actually the emperor model.
+Subnautica Ghost Leviathan has a color component in the vertex buffer when viewed in the Unity editor, which is interesting. It's also interesting how the 'Ghost' leviathan is actually the sea dragon model.
 
 I used this tool with Valheim after discovering that the vertex buffer formats were not going to let my Python version work correctly. It's also annoying how about half of the Valheim assets are default named. 
 
